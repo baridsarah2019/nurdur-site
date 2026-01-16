@@ -7,14 +7,15 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { motion } from "framer-motion";
-import { useLanguage } from "@/lib/i18n";
+import { useLanguage, translations } from "@/lib/i18n";
 
 export default function Contact() {
   const { language } = useLanguage();
+  const t = translations[language].contactPage;
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    alert(language === "en" ? "Message Sent ✅" : "تم إرسال الرسالة ✅");
+    alert(t.form.sent);
     (e.currentTarget as HTMLFormElement).reset();
   }
 
@@ -36,36 +37,16 @@ export default function Contact() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="space-y-8">
                 <div className="space-y-6">
-                  <h2 className="text-2xl font-bold font-heading">{language === "en" ? "Get In Touch" : "ابقَ على تواصل"}</h2>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {language === "en"
-                      ? "We are available to discuss your construction needs and provide detailed consultations."
-                      : "نحن جاهزون لمناقشة احتياجاتكم وتقديم الاستشارات التفصيلية."}
-                  </p>
+                  <h2 className="text-2xl font-bold font-heading">{t.getInTouch}</h2>
+                  <p className="text-muted-foreground leading-relaxed">{t.intro}</p>
                 </div>
 
                 <div className="grid gap-6">
                   {[
-                    {
-                      icon: MapPin,
-                      title: language === "en" ? "Our Location" : "العنوان",
-                      content: `Palestine St., Mayslon Square\nBaghdad, Iraq`,
-                    },
-                    {
-                      icon: Phone,
-                      title: language === "en" ? "Phone Numbers" : "أرقام الهاتف",
-                      content: `+964 772 846 0390\n+964 790 152 3478\n+964 770 443 9842`,
-                    },
-                    {
-                      icon: Mail,
-                      title: language === "en" ? "Email Address" : "البريد الإلكتروني",
-                      content: `companyemaar@gmail.com\nsabah.j.d1972@gmail.com`,
-                    },
-                    {
-                      icon: Clock,
-                      title: language === "en" ? "Working Hours" : "ساعات العمل",
-                      content: `Saturday - Thursday: 8:00 AM - 5:00 PM\nFriday: Closed`,
-                    },
+                    { icon: MapPin, title: t.cards.locationTitle, content: t.cards.location },
+                    { icon: Phone, title: t.cards.phoneTitle, content: t.cards.phones },
+                    { icon: Mail, title: t.cards.emailTitle, content: t.cards.emails },
+                    { icon: Clock, title: t.cards.hoursTitle, content: t.cards.hours },
                   ].map((item, i) => (
                     <Card key={i}>
                       <CardContent className="p-6 flex items-start gap-4">
@@ -83,32 +64,32 @@ export default function Contact() {
               </motion.div>
 
               <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bg-white p-8 rounded-xl shadow-lg border border-border h-fit">
-                <h2 className="text-2xl font-bold font-heading mb-6">{language === "en" ? "Send a Message" : "أرسل رسالة"}</h2>
+                <h2 className="text-2xl font-bold font-heading mb-6">{t.form.title}</h2>
 
                 <form onSubmit={onSubmit} className="space-y-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold">{language === "en" ? "Full Name" : "الاسم الكامل"}</label>
-                    <Input required placeholder={language === "en" ? "John Doe" : "الاسم"} />
+                    <label className="text-sm font-semibold">{t.form.fullName}</label>
+                    <Input required placeholder={t.form.fullNamePh} />
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-sm font-semibold">{language === "en" ? "Email" : "البريد الإلكتروني"}</label>
+                      <label className="text-sm font-semibold">{t.form.email}</label>
                       <Input required type="email" placeholder="name@example.com" />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-semibold">{language === "en" ? "Phone" : "رقم الهاتف"}</label>
+                      <label className="text-sm font-semibold">{t.form.phone}</label>
                       <Input required placeholder="+964..." />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-semibold">{language === "en" ? "Message" : "الرسالة"}</label>
-                    <Textarea required className="min-h-[120px]" placeholder={language === "en" ? "Tell us about your project requirements..." : "اكتب تفاصيل طلبك..."} />
+                    <label className="text-sm font-semibold">{t.form.message}</label>
+                    <Textarea required className="min-h-[120px]" placeholder={t.form.messagePh} />
                   </div>
 
                   <Button type="submit" size="lg" className="w-full font-semibold">
-                    {language === "en" ? "Send Message" : "إرسال"}
+                    {t.form.submit}
                   </Button>
                 </form>
               </motion.div>

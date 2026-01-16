@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { useLanguage } from "@/lib/i18n";
+import { useLanguage, translations } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Mail, Phone, Globe } from "lucide-react";
@@ -10,6 +10,7 @@ import logo from "@/assets/logo.png";
 export function Navbar() {
   const [location] = useLocation();
   const { language, setLanguage } = useLanguage();
+  const common = translations[language].common;
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -72,7 +73,7 @@ export function Navbar() {
                   "inline-flex items-center gap-2 rounded-md px-3 py-1",
                   isHome ? "hover:bg-white/10" : "hover:bg-secondary"
                 )}
-                aria-label="Toggle language"
+                aria-label={language === "en" ? "Switch language" : "تبديل اللغة"}
               >
                 <Globe className="h-4 w-4" />
                 {language === "en" ? "العربية" : "English"}
@@ -92,9 +93,9 @@ export function Navbar() {
               className="h-11 w-11 rounded-md bg-white/90 p-1 object-contain"
             />
             <div className={cn("leading-tight", "text-white")}>
-              <div className="font-semibold tracking-wide">NURDAR AL FAISAL</div>
+              <div className="font-semibold tracking-wide">{common.companyName}</div>
               <div className={cn("text-xs", isHome ? "text-white/70" : "text-muted-foreground")}>
-                GENERAL CONTRACTING
+                {common.companyTagline}
               </div>
             </div>
           </Link>
@@ -135,7 +136,7 @@ export function Navbar() {
                   "bg-white text-black hover:bg-white/90"
                 )}
               >
-                {language === "en" ? "Get a Quote" : "اطلب عرض سعر"}
+                  {common.getQuote}
               </Button>
             </Link>
           </div>

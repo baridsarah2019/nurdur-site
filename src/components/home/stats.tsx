@@ -1,12 +1,16 @@
 import { Counter } from "@/components/ui/Counter";
+import { useLanguage, translations } from "@/lib/i18n";
 
 export function Stats() {
+  const { language } = useLanguage();
+  const t = translations[language].stats;
+
   const stats = [
     // Keep it numeric so we can animate it.
-    { label: "Capital (IQD)", to: 1, suffix: "B+" },
-    { label: "Projects Completed", to: 25, suffix: "+" },
-    { label: "Machinery Fleet", to: 50, suffix: "+" },
-    { label: "Expert Engineers", to: 100, suffix: "+" },
+    { label: t.capital, to: 1, suffix: "B+" },
+    { label: t.projectsCompleted, to: 25, suffix: "+" },
+    { label: t.machineryFleet, to: 50, suffix: "+" },
+    { label: t.expertEngineers, to: 100, suffix: "+" },
   ];
 
   return (
