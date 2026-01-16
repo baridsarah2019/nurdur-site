@@ -66,34 +66,18 @@ export function Hero() {
           </div>
 
           {/* Title */}
-          <h1 className={cn(
-            "mt-7 text-5xl md:text-6xl font-bold text-white [font-kerning:normal] [text-rendering:optimizeLegibility]",
-            language === "ar"
-              ? "text-6xl md:text-7xl leading-[1.02] md:leading-[1.02]"
-              : "leading-[1.05]"
-          )}>
+          <h1 className="mt-6 text-5xl md:text-6xl font-bold leading-[1.05] text-white">
             {t.title}{" "}
-            <span className={cn(
-              "text-primary block mt-2",
-              language === "ar" ? "ar-hero-accent" : ""
-            )}>
-              {t.titleAccent}
-            </span>
+            <span className="text-primary block mt-2">{t.titleAccent}</span>
           </h1>
 
           {/* Subtitle */}
-          <p className={cn(
-            "mt-6 text-lg md:text-xl text-white/80 max-w-2xl",
-            language === "ar" ? "leading-[2.05]" : "leading-relaxed"
-          )}>
+          <p className="mt-6 text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed">
             {t.subtitle}
           </p>
 
           {/* CTAs */}
-          <div className={cn(
-            "mt-10 flex flex-col sm:flex-row gap-4",
-            language === "ar" ? "sm:justify-start" : ""
-          )}>
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <Link href="/projects">
               <Button size="lg" className="h-14 px-8 text-base font-semibold">
                 {t.viewProjects}

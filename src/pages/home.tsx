@@ -22,7 +22,7 @@ export default function Home() {
       <main className="flex-grow">
         <Hero />
 
-        <section className="py-24 bg-white overflow-hidden section-premium">
+        <section className="py-24 bg-white overflow-hidden">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <motion.div
@@ -95,7 +95,7 @@ export default function Home() {
         <Stats />
         <ServicesPreview />
 
-        <section className="py-24 bg-slate-900 text-white relative overflow-hidden section-premium">
+        <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
           <div className="absolute inset-0 z-0 opacity-20 bg-cover bg-center" style={{ backgroundImage: `url(${excavatorImage})` }} />
           <div className="absolute inset-0 bg-slate-900/80 z-0" />
 
