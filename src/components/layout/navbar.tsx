@@ -108,9 +108,9 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "text-sm font-medium transition-colors",
+                    "text-sm font-medium transition-colors nav-link-bcg",
                     "text-white/80 hover:text-white",
-                    active && ("text-white")
+                    active && ("text-white nav-link-bcg-active")
                   )}
                 >
                   {language === "en" ? item.labelEn : item.labelAr}

@@ -78,6 +78,73 @@ html[lang="ar"] .font-heading {
 @tailwind components;
 @tailwind utilities;
 
+/* =========================
+   Al Jazeera Arabic Font
+   ========================= */
+@font-face {
+  font-family: "Al Jazeera Arabic";
+  src: url("/fonts/AlJazeeraArabic-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* =========================
+   Al Jazeera Arabic — Premium RTL Typography
+   ========================= */
+
+/* Prevent browser synthesized bold/italic (keeps Arabic crisp) */
+html { font-synthesis: none; }
+
+/* Arabic base */
+html[lang="ar"] body,
+html[lang="ar"] .font-heading {
+  font-family: "Al Jazeera Arabic", "AE Al Arabiya", "IBM Plex Sans Arabic", "Tajawal", "Cairo", ui-sans-serif, system-ui, sans-serif !important;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0 !important;
+}
+
+/* Headings hierarchy (BCG-like rhythm) */
+html[lang="ar"] h1 { font-weight: 700; line-height: 1.12 !important; }
+html[lang="ar"] h2 { font-weight: 700; line-height: 1.18 !important; }
+html[lang="ar"] h3 { font-weight: 600; line-height: 1.28 !important; }
+html[lang="ar"] h4,
+html[lang="ar"] h5,
+html[lang="ar"] h6 { font-weight: 600; line-height: 1.35 !important; }
+
+/* Body text */
+html[lang="ar"] p,
+html[lang="ar"] li {
+  font-weight: 400;
+  line-height: 2.0 !important;
+}
+
+/* Small text + muted content */
+html[lang="ar"] small,
+html[lang="ar"] .text-sm {
+  line-height: 1.9 !important;
+}
+
+/* Nav + buttons: clean and slightly bolder */
+html[lang="ar"] nav a,
+html[lang="ar"] button,
+html[lang="ar"] .btn {
+  font-weight: 600 !important;
+}
+
+/* Forms: comfortable reading */
+html[lang="ar"] input,
+html[lang="ar"] textarea,
+html[lang="ar"] select {
+  font-weight: 400 !important;
+  line-height: 1.8;
+}
+
+
+
 
 /* =========================
    Arabic typography + RTL
@@ -220,3 +287,273 @@ html[dir="rtl"] .text-left { text-align: right !important; }
   }
   .font-heading { font-family: var(--font-heading); }
 }
+
+
+/* =======================
+/* =========================
+   Hero Arabic accent (heavier blue line + better kerning)
+   ========================= */
+html[lang="ar"] .ar-hero-accent {
+  /* allow synthesized weight ONLY here to make the accent feel bolder */
+  font-synthesis: weight;
+  font-weight: 800;
+  letter-spacing: 0 !important;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  /* subtle stroke/shadow to mimic a heavier cut without looking blurry */
+  -webkit-text-stroke: 0.35px currentColor;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.22);
+}
+
+
+/* =========================
+   Section headings (Arabic) — BCG-like hierarchy
+   ========================= */
+html[lang="ar"] h2.font-heading,
+html[lang="ar"] h3.font-heading,
+html[lang="ar"] .font-heading h2,
+html[lang="ar"] .font-heading h3 {
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+}
+
+html[lang="ar"] h2.font-heading,
+html[lang="ar"] .font-heading h2 {
+  font-weight: 700;
+  line-height: 1.18 !important;
+}
+
+html[lang="ar"] h3.font-heading,
+html[lang="ar"] .font-heading h3 {
+  font-weight: 600;
+  line-height: 1.26 !important;
+}
+
+/* Make primary-colored emphasis in headings feel slightly heavier (like BCG) */
+html[lang="ar"] .font-heading .text-primary:not(.ar-hero-accent) {
+  font-synthesis: weight;
+  font-weight: 800;
+  -webkit-text-stroke: 0.25px currentColor;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.18);
+}
+
+
+==
+   Premium spacing (Arabic)
+   ========================= */
+html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3 {
+  margin-bottom: 0.35em;
+}
+
+html[lang="ar"] p + p {
+  margin-top: 0.75em;
+}
+
+html[lang="ar"] section {
+  scroll-margin-top: 96px;
+}
+
+
+/* =========================
+   Arabic long-form readability (BCG-like)
+   ========================= */
+
+/* Keep paragraphs from becoming too wide on large screens */
+html[lang="ar"] .container {
+  max-width: 1200px;
+}
+
+@media (min-width: 1024px) {
+  html[lang="ar"] .prose-like,
+  html[lang="ar"] p {
+    max-width: 62ch;
+  }
+}
+
+/* Better paragraph rhythm */
+html[lang="ar"] p {
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+}
+
+/* Lists */
+html[lang="ar"] ul,
+html[lang="ar"] ol {
+  margin-top: 0.6em;
+  margin-bottom: 0.9em;
+}
+
+html[lang="ar"] li {
+  margin-top: 0.35em;
+}
+
+/* Make muted text slightly more readable */
+html[lang="ar"] .text-muted-foreground {
+  opacity: 0.92;
+}
+
+
+/* =========================
+   Premium section spacing (Arabic)
+   ========================= */
+html[lang="ar"] .section-premium {
+  padding-top: 5.75rem !important;
+  padding-bottom: 5.75rem !important;
+}
+
+@media (min-width: 1024px) {
+  html[lang="ar"] .section-premium {
+    padding-top: 6.25rem !important;
+    padding-bottom: 6.25rem !important;
+  }
+}
+
+/* Slightly tighter grid gaps for Arabic so blocks feel aligned */
+html[lang="ar"] .section-premium .gap-12 { gap: 2.5rem !important; }
+html[lang="ar"] .section-premium .gap-10 { gap: 2.25rem !important; }
+html[lang="ar"] .section-premium .space-y-24 > :not([hidden]) ~ :not([hidden]) { margin-top: 5.5rem !important; }
+
+/* Narrow reading column inside premium sections */
+html[lang="ar"] .section-premium p,
+html[lang="ar"] .section-premium li {
+  max-width: 64ch;
+}
+
+
+/* =========================
+   V6 polish — headings, cards, icon alignment (Arabic)
+   ========================= */
+
+/* Consistent heading scale across pages */
+html[lang="ar"] h1 { font-size: clamp(2.35rem, 3.2vw, 4rem); }
+html[lang="ar"] h2 { font-size: clamp(1.6rem, 1.7vw, 2.25rem); }
+html[lang="ar"] h3 { font-size: clamp(1.25rem, 1.2vw, 1.6rem); }
+
+/* Cards: slightly roomier + cleaner text rhythm */
+html[lang="ar"] .bg-card p,
+html[lang="ar"] .bg-card li {
+  line-height: 1.95 !important;
+}
+
+html[lang="ar"] .bg-card .text-muted-foreground {
+  opacity: 0.94;
+}
+
+/* Icon + text alignment in RTL (Lucide/shadcn) */
+html[dir="rtl"] .inline-flex svg,
+html[dir="rtl"] nav svg,
+html[dir="rtl"] button svg {
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+/* When using gap utilities, keep icon spacing consistent */
+html[dir="rtl"] .inline-flex.gap-2 { column-gap: 0.6rem; }
+html[dir="rtl"] .inline-flex.gap-3 { column-gap: 0.8rem; }
+
+/* Prevent awkward wrapping in buttons/links */
+html[lang="ar"] button,
+html[lang="ar"] a[role="button"] {
+  text-wrap: balance;
+}
+
+
+/* =========================
+   V7 micro-interactions (Luxury, subtle)
+   ========================= */
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.22);
+}
+
+.card-hover:hover {
+  border-color: rgba(255,255,255,0.18);
+}
+
+/* Subtle button polish (applies to shadcn Button) */
+button, a[role="button"] {
+  transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease, border-color 220ms ease;
+  will-change: transform;
+}
+
+button:hover, a[role="button"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+}
+
+button:active, a[role="button"]:active {
+  transform: translateY(0px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.14);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .card-hover,
+  button, a[role="button"] {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* =========================
+   BCG‑style link underline animation (Arabic + English)
+   ========================= */
+
+a:not([role="button"]):not(.btn):not(.no-underline) {
+  position: relative;
+  text-decoration: none;
+}
+
+a:not([role="button"]):not(.btn):not(.no-underline)::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: -1px;
+  width: 0%;
+  height: 2px;
+  background: currentColor;
+  transition: width 260ms ease;
+  border-radius: 2px;
+}
+
+a:not([role="button"]):not(.btn):not(.no-underline):hover::after {
+  width: 100%;
+}
+
+
+/* =========================
+   Navbar (BCG-style)
+   ========================= */
+
+/* Use underline animation for navbar links with slightly different thickness/offset */
+.nav-link-bcg {
+  position: relative;
+  text-decoration: none;
+  padding-bottom: 6px;
+}
+
+.nav-link-bcg::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: 0px;
+  width: 0%;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.85;
+  transition: width 260ms ease, opacity 260ms ease;
+  border-radius: 999px;
+}
+
+.nav-link-bcg:hover::after { width: 100%; opacity: 1; }
+
+/* Active link looks like BCG: underline shown */
+.nav-link-bcg-active::after {
+  width: 100%;
+  opacity: 1;
+}
+
+/* Slightly tighter tracking for Arabic in navbar */
+html[lang="ar"] .nav-link-bcg { letter-spacing: 0 !important; }
