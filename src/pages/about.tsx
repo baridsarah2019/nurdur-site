@@ -32,12 +32,12 @@ export default function About() {
                   <p>
                     {language === "en"
                       ? "We are pleased to express our full readiness to cooperate with you in executing projects according to your required technical specifications. We are also prepared to supply materials, devices, and equipment from trusted international origins—contributing to Iraq’s reconstruction."
-                      : "يسرنا أن نعرب عن استعدادنا الكامل للتعاون معكم في تنفيذ المشاريع وفقاً للمواصفات الفنية المطلوبة، كما أننا على استعداد لتوفير المواد والأجهزة والمعدات من أفضل المناشئ العالمية للمساهمة في إعادة إعمار العراق."}
+                      : "يسعدنا تأكيد جاهزيتنا للتعاون في تنفيذ المشاريع وفق أعلى معايير الجودة والسلامة، مع قدرة موثوقة على توريد المواد والمعدات من مناشئ عالمية لدعم برامج الإعمار في العراق."}
                   </p>
                   <p>
                     {language === "en"
                       ? "We aspire to develop and expand the company and extend its reach as far as possible in service of the country and the public interest."
-                      : "نطمح إلى تطوير وتوسيع الشركة ومد نطاق وصولها إلى أبعد حد ممكن خدمة للبلاد والمصلحة العامة."}
+                      : "نواصل تطوير قدراتنا وتوسيع نطاق أعمالنا لتقديم قيمة مستدامة لعملائنا وخدمة المصلحة العامة."}
                   </p>
                   <div className="mt-8 pt-6 border-t border-border">
                     <p className="font-bold text-foreground">{language === "en" ? "SABAH JABBAR DABKH" : "صباح جبار دبخ"}</p>
