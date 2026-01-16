@@ -337,8 +337,7 @@ html[lang="ar"] .font-heading .text-primary:not(.ar-hero-accent) {
   text-shadow: 0 1px 0 rgba(0,0,0,0.18);
 }
 
-
-==
+/* =========================
    Premium spacing (Arabic)
    ========================= */
 html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3 {
