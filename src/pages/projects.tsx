@@ -26,7 +26,7 @@ export default function Projects() {
           subtitleAr="نماذج من أعمالنا في البناء والبنى التحتية والمشاريع الكهربائية."
         />
 
-        <section className="py-20">
+        <section className="py-20 section-premium">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (

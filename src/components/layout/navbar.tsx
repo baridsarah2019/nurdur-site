@@ -108,9 +108,9 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "text-sm font-medium transition-colors",
+                    "text-sm font-medium transition-colors nav-link-bcg",
                     "text-white/80 hover:text-white",
-                    active && ("text-white")
+                    active && ("text-white nav-link-bcg-active")
                   )}
                 >
                   {language === "en" ? item.labelEn : item.labelAr}
@@ -133,10 +133,38 @@ export function Navbar() {
               <Button
                 className={cn(
                   "hidden sm:inline-flex",
-                  "bg-white text-black hover:bg-white/90"
+                  "group relative overflow-hidden",
+                  "bg-transparent",
+                  "text-blue-500",
+                  "border border-blue-500/45",
+                  "px-5 py-2 rounded-md",
+                  "transition-all duration-300 ease-out",
+                  "hover:text-white hover:border-blue-500",
+                  "hover:shadow-[0_12px_26px_rgba(0,0,0,0.22)]",
+                  "hover:-translate-y-[1px]",
+                  "active:translate-y-0 active:shadow-[0_8px_18px_rgba(0,0,0,0.18)]"
                 )}
               >
-                  {common.getQuote}
+                {/* animated background */}
+                <span
+                  className={cn(
+                    "absolute inset-0 -z-10",
+                    "opacity-0 transition-opacity duration-300",
+                    "group-hover:opacity-100",
+                    "bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600"
+                  )}
+                />
+                {/* subtle shine sweep */}
+                <span
+                  className={cn(
+                    "absolute inset-y-0 left-[-35%] w-[35%] -z-10",
+                    "opacity-0 group-hover:opacity-100",
+                    "bg-white/25 blur-md rotate-12",
+                    "transition-all duration-700",
+                    "group-hover:left-[110%]"
+                  )}
+                />
+                <span className="relative z-10">{common.getQuote}</span>
               </Button>
             </Link>
           </div>
