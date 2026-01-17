@@ -30,7 +30,7 @@ export default function Services() {
           subtitleAr="حلول متكاملة للمقاولات والهندسة المدنية والأعمال الكهربائية."
         />
 
-        <section className="py-20 overflow-hidden section-premium">
+        <section className="py-20 overflow-hidden">
           <div className="container mx-auto px-4 space-y-24">
             {servicesList.map((service, index) => (
               <div key={index} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -54,7 +54,7 @@ export default function Services() {
           </div>
         </section>
 
-        <section className="py-20 bg-slate-900 text-white section-premium">
+        <section className="py-20 bg-slate-900 text-white">
           <div className="container mx-auto px-4">
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-16">
               <h2 className="text-3xl font-heading font-bold mb-4">{t.machineryTitle}</h2>

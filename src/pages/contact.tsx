@@ -32,7 +32,7 @@ export default function Contact() {
           subtitleAr="تواصل مع فريقنا للاستفسارات والشراكات وطلبات عروض الأسعار."
         />
 
-        <section className="py-20 section-premium">
+        <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="space-y-8">

@@ -22,7 +22,7 @@ export default function About() {
           subtitleAr="نبذة عن الشركة وقيمها وقدراتها."
         />
 
-        <section className="py-20 section-premium">
+        <section className="py-20">
           <div className="container mx-auto px-4 space-y-24">
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="grid grid-cols-1 lg:grid-cols-12 gap-12">
               <div className="lg:col-span-8 space-y-6">
